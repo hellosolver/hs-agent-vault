@@ -1,0 +1,58 @@
+{
+  "project_id": "generic-application",
+  "active_stage": "5_Developer",
+  "active_phase": "Feature Implementation",
+  "workflow_pathway": "Standard",
+  "branch_pathway": {
+    "current_branch": "develop",
+    "required_order": ["develop", "staging", "main"],
+    "git_allowed": false,
+    "deployment_allowed": false,
+    "manual_approval_action": null
+  },
+  "environment_gates": {
+    "local": { "status": "pending", "url": "[Local Preview URL]" },
+    "dev": { "status": "pending", "url": "[Dev URL]" },
+    "staging": { "status": "pending", "url": "[Staging URL]" },
+    "production": { "status": "blocked", "url": "[Production URL]" }
+  },
+  "stage_history": [
+    {
+      "stage": "1_PromptAgent",
+      "status": "PASSED",
+      "timestamp": "2026-06-02T14:40:00Z",
+      "operator": "AI"
+    },
+    {
+      "stage": "2_ProductOwner",
+      "status": "PASSED",
+      "timestamp": "2026-06-02T14:45:00Z",
+      "operator": "AI"
+    },
+    {
+      "stage": "3_Architect",
+      "status": "PASSED",
+      "timestamp": "2026-06-02T14:50:00Z",
+      "operator": "AI"
+    },
+    {
+      "stage": "4_UIUX",
+      "status": "PASSED",
+      "timestamp": "2026-06-02T14:55:00Z",
+      "operator": "AI"
+    }
+  ],
+  "current_build_status": {
+    "lint_pass": true,
+    "compile_pass": true,
+    "tests_run": 0,
+    "tests_passed": 0
+  },
+  "artifact_paths": [],
+  "test_report_paths": [],
+  "runbook_paths": [],
+  "troubleshooting_paths": [],
+  "blocked_by": null,
+  "rollback_plan": null,
+  "deployment_allowed": false
+}
