@@ -20,6 +20,7 @@ This repository contains the centralized master prompts, standard operating proc
     *   `sop.md` - Loader, traceability, git, gate, documentation, secrets, and migration rules.
     *   `ai_rules.md` - Strict AI behavioral constraints and visual locks.
     *   `dev_rules.md` - Standard CSS layout spacing grid and dimension locks.
+    *   `project_start_checklist.md` - Default readiness checklist before new or existing project development.
     *   `runbooks/` - Reusable runbook SOP and templates.
     *   `troubleshooting/` - Repeated issue and root-cause templates.
 

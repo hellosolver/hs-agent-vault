@@ -234,3 +234,56 @@ Any schema, index, seed, or data transformation change must include:
 *   **CLI/API Tester Agent:** Validates migration behavior, rollback behavior, and data consistency checks.
 *   **Supervisor Agent:** Blocks approval if migration risk exists without a rollback plan.
 *   **DevOps & Monitor Agent:** Executes approved migration steps only after Common Gate Pipeline and manual approval.
+
+---
+
+## 🚦 SOP 10: Project Start Readiness Standard
+
+Before development starts on any new project, major module, or inherited existing project, the team must run a Project Start Readiness check. The goal is to avoid building features before the product foundation, user journey, environments, and support model are clear.
+
+### 1. Product & Business Clarity
+Every project must define:
+*   Project purpose and target users.
+*   Primary user roles and permissions.
+*   Core user journeys and success metrics.
+*   MVP scope, postponed scope, and non-goals.
+*   Monetization, operational, or business constraints when applicable.
+
+### 2. Default User-Facing Surfaces
+Each project must explicitly implement, plan, or mark not-applicable for:
+*   **Onboarding:** First-run guidance, role selection, setup steps, and activation path.
+*   **Landing / Home Page:** Clear value, primary action, secondary action, trust signals, and route into the product.
+*   **Login / Authentication:** Sign-in, sign-up, logout, session expiry, password/OTP recovery, and unauthorized states.
+*   **Dashboard / Main Entry:** Role-specific landing after login, navigation, and task priority.
+*   **Profile / Settings:** Account details, preferences, notification settings, and safe sign-out.
+*   **Help & Support:** FAQ, contact path, issue reporting, support escalation, and troubleshooting links.
+*   **Legal / Trust:** Terms, privacy, consent, data usage, deletion/export path when applicable.
+*   **Empty / Error / Loading States:** No-data states, failed-action states, retries, loaders, and offline/degraded states.
+
+### 3. Existing Project Intake
+For existing projects, the Prompt Agent and Architect must inspect:
+*   Current routes, pages, APIs, database/schema, authentication, roles, and environment files.
+*   Active dependencies, build/test commands, deployment target, branch state, and open issues.
+*   Existing documentation, runbooks, troubleshooting records, and known repeated issues.
+*   Legacy or obsolete modules that must not leak into new work.
+
+### 4. Engineering Readiness
+Before implementation, the team must confirm:
+*   Repository structure and coding conventions.
+*   Environment variables and safe `.env.example`.
+*   Secrets policy and credential redaction.
+*   Database/schema ownership and migration plan if data changes are needed.
+*   Test strategy for unit, integration, E2E, GUI, CLI/API, and Human validation.
+*   Common Gate Pipeline readiness for local, dev, staging, and production.
+
+### 5. Documentation Readiness
+Before the first promotion beyond local development, the project must have:
+*   Setup/run instructions.
+*   Common Gate Pipeline instructions.
+*   Runbook location.
+*   Troubleshooting/root-cause location.
+*   Release notes location.
+*   Decision log location for important product, architecture, or operational choices.
+
+### 6. Approval Lock
+The Supervisor must block development or promotion if required start-readiness items are missing without an explicit Product Owner decision to postpone them.

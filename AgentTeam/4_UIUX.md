@@ -28,6 +28,7 @@ Ensure the frontend application is modern, highly responsive, app-like on mobile
    * Design immediate disabled states and loading feedback triggers for all mutation buttons.
    * Design explicit empty, error, and cached stale states for active dashboards.
 5. **No Legacy Context Spill**: Ensure no legacy routing or outdated business sections are rendered. Direct all external resource CTAs to open in a new tab.
+6. **Default Product Surfaces**: Every project must explicitly design or mark not-applicable: onboarding, landing/home, login/auth, account/profile, settings, dashboard/home entry, help/support, contact/feedback, empty states, error states, and legal links.
 
 ---
 
@@ -36,6 +37,7 @@ Ensure the frontend application is modern, highly responsive, app-like on mobile
 * **User Flows**: Define intuitive user pathways for transactional flows, status tracking, notifications, and customer-operator chat windows.
 * **Component Standardization**: Create design guidelines for cards, forms, modals, bottom sheets, and table rows to ensure "same state = same style/color".
 * **Realtime Chat UX**: Design compact chat layouts with visible close headers, escape controls, and optimized spacing.
+* **First-Run UX**: Define what a new user sees first, how they understand value, how they authenticate, how they recover from confusion, and how they get support.
 
 ---
 
@@ -48,7 +50,8 @@ Output ONLY:
 4. Realtime Loading & Error State Designs (Mapped to `REQ-xxx` loader requirements)
 5. Requirements Traceability Matrix (RTM): Verify that all frontend user flows and component standardizations cover the corresponding `REQ-xxx` IDs.
 6. UX Friction Point Analysis
-7. Handover Destination (Next: Developer Agent: `5_Developer.md`)
+7. Default Surface Coverage (Onboarding / Landing / Login / Help & Support / Legal / Empty & Error States)
+8. Handover Destination (Next: Developer Agent: `5_Developer.md`)
 
 Rules:
 * Avoid generic design terminology.

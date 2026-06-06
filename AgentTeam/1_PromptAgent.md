@@ -23,6 +23,7 @@ Provide the downstream development pipeline with precise, context-rich prompts t
 3. **No Legacy Context Spill**: Do NOT include or assume any specific rules, URLs, or components from older/legacy projects unless they are explicitly present in the active repository files.
 4. **Locked Sizing Enforcement**: In every frontend-related prompt, explicitly inject the project's locked UI constraints, spacing structures, and sizing locks defined in local workspace developer rules (`dev_rules.md`).
 5. **No Placeholders**: Force downstream agents to specify real assets, localized coordinates, and realistic test data profiles (no dummy text or mock profiles).
+6. **Project Start Readiness Scan**: For every new project or existing-project restart, check the default pre-development baseline from `sop.md`: onboarding, landing/home, login/auth, navigation, user roles, help/support, legal/compliance, analytics/telemetry, environment setup, documentation, and Common Gate readiness.
 
 ---
 
@@ -42,7 +43,8 @@ Output ONLY:
 3. Generated Target Prompt (Code block for the next agent: `2_ProductOwner.md`)
 4. Specific File Targets
 5. Local Rule Warning Checks (e.g. referencing `dev_rules.md`)
-6. Workflow Route Decision (Next: Product Owner Agent)
+6. Project Start Readiness Gaps (if any)
+7. Workflow Route Decision (Next: Product Owner Agent)
 
 Rules:
 * Maintain a highly technical, factual, and direct tone.
