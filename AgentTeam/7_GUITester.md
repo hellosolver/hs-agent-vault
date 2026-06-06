@@ -44,7 +44,7 @@ Output ONLY:
 5. GUI Score /10
 6. High Issues & Medium Issues
 7. Low Issues & Suggested Fix Priority
-8. Next Agent: Developer Agent: `5_Developer.md` (if FAIL) / CLI/API Tester Agent: `7_CLITester.md` (if PASS)
+8. Next Agent: Developer Agent: `6_Developer.md` (if FAIL) / CLI/API Tester Agent: `8_CLITester.md` (if PASS)
 
 Rules:
 * Max 10 bullets total

@@ -4,13 +4,13 @@
 Refactor the selected application module to use environment-defined service URLs instead of hardcoded local endpoints.
 
 ## Current Stage Details
-- **Active Role:** Full Stack Developer Agent (`5_Developer.md`)
+- **Active Role:** Full Stack Developer Agent (`6_Developer.md`)
 - **Status:** In Progress
 - **Preceding Inputs:** API responses and DB Schema designed by the Architect (`3_Architect.md`).
 
 ## Downstream Target
 Once the Developer completes implementation, runs the project lint command, and verifies the compile/build command:
-- **Next Action:** Handover to GUI Tester (`6_GUITester.md`) for visual responsiveness and component styling validation.
+- **Next Action:** Handover to GUI Tester (`7_GUITester.md`) for visual responsiveness and component styling validation.
 
 ## Handoff Parameters
 - **Source Files Modified:** `[List changed source files]`

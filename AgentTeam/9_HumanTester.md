@@ -42,7 +42,7 @@ Output ONLY:
 3. Stale Cache Context & Status Sync Review (Mapped to `REQ-xxx` IDs)
 4. **RTM Usability Test Checklist**: Explicitly state PASS/FAIL status for each human-associated `REQ-xxx` ID defined in `feature_spec.json`.
 5. Edge Case Mismatch Failures
-6. Final Handover: Developer Agent: `5_Developer.md` (if FAIL) / Supervisor Agent: `9_Supervisor.md` (if PASS)
+6. Final Handover: Developer Agent: `6_Developer.md` (if FAIL) / Supervisor Agent: `10_Supervisor.md` (if PASS)
 
 Rules:
 * Rely purely on user-experience observations.

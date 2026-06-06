@@ -24,6 +24,7 @@ Provide the downstream development pipeline with precise, context-rich prompts t
 4. **Locked Sizing Enforcement**: In every frontend-related prompt, explicitly inject the project's locked UI constraints, spacing structures, and sizing locks defined in local workspace developer rules (`dev_rules.md`).
 5. **No Placeholders**: Force downstream agents to specify real assets, localized coordinates, and realistic test data profiles (no dummy text or mock profiles).
 6. **Project Start Readiness Scan**: For every new project or existing-project restart, check the default pre-development baseline from `sop.md`: onboarding, landing/home, login/auth, navigation, user roles, help/support, legal/compliance, analytics/telemetry, environment setup, documentation, and Common Gate readiness.
+7. **Discovery Discussion Routing**: If the user wants to discuss app viability, future growth, income potential, business model, market, infra cost, or product strategy before building, route to Product Owner first, then Architect/DevOps/UIUX as needed.
 
 ---
 
@@ -44,7 +45,8 @@ Output ONLY:
 4. Specific File Targets
 5. Local Rule Warning Checks (e.g. referencing `dev_rules.md`)
 6. Project Start Readiness Gaps (if any)
-7. Workflow Route Decision (Next: Product Owner Agent)
+7. Discovery / Strategy Discussion Route (if applicable)
+8. Workflow Route Decision (Next: Product Owner Agent)
 
 Rules:
 * Maintain a highly technical, factual, and direct tone.

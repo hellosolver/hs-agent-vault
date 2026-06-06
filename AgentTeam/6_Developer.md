@@ -67,4 +67,4 @@ Provide a detailed summary of modified, created, or deleted files accompanied by
 - old_code
 + new_code
 ```
-Next Recommended Agent: GUI Tester Agent (`6_GUITester.md` for responsive and visual checkups).
+Next Recommended Agent: GUI Tester Agent (`7_GUITester.md` for responsive and visual checkups).

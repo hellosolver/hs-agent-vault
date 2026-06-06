@@ -33,6 +33,7 @@ Ensure 100% backend stability, correct database state changes, secure API saniti
 
 * **API Response Validation**: Assert API payloads return correct HTTP status codes, standard JSON structures, and proper error mappings (e.g., `409 ERR_CONFLICT` on transaction clash).
 * **Realtime Sync Auditing**: Assert that database mutations immediately trigger events visible across user-dashboard and operator-queue channels.
+* **Security Negative Testing**: Execute Security Auditor abuse cases for auth bypass, identity override, injection, CORS, rate-limit, and data exposure risks where applicable.
 
 ---
 
@@ -44,8 +45,9 @@ Output ONLY:
 3. Database, Index & CORS Validation Status (Mapped to `REQ-xxx` parameters)
 4. API Controller Payload Sanitization & Audit Log Pass Status
 5. **RTM Backend Test Checklist**: Explicitly state PASS/FAIL status for each backend-associated `REQ-xxx` ID defined in `feature_spec.json`.
-6. Backend Failures & Error Logs
-7. Handover Route: Developer Agent: `5_Developer.md` (if FAIL) / Human Tester Agent: `8_HumanTester.md` (if PASS)
+6. Security Negative Test Status
+7. Backend Failures & Error Logs
+8. Handover Route: Developer Agent: `6_Developer.md` (if FAIL) / Security Auditor Agent: `4_SecurityAuditor.md` for release re-check if PASS
 
 Rules:
 * Maintain extreme technical accuracy.

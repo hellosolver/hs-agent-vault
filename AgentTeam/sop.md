@@ -123,8 +123,10 @@ Every branch push or promotion must pass the same reusable gate. This gate appli
 Common Gate Pipeline
   -> current environment build completed
   -> lint/test/build passed
+  -> Security Auditor PASS
   -> GUI Tester PASS
   -> CLI/API Tester PASS
+  -> Security Auditor release re-check PASS
   -> Human Tester PASS
   -> RTM traceability PASS
   -> Supervisor manual approval action
@@ -231,6 +233,7 @@ Any schema, index, seed, or data transformation change must include:
 ### 2. Ownership
 *   **Architect Agent:** Designs migration, rollback, and consistency plan.
 *   **Developer Agent:** Implements migration code/scripts and documents changed files.
+*   **Security Auditor Agent:** Reviews migration security, sensitive data transformation risks, backup/rollback safety, and data exposure risks.
 *   **CLI/API Tester Agent:** Validates migration behavior, rollback behavior, and data consistency checks.
 *   **Supervisor Agent:** Blocks approval if migration risk exists without a rollback plan.
 *   **DevOps & Monitor Agent:** Executes approved migration steps only after Common Gate Pipeline and manual approval.
@@ -287,3 +290,78 @@ Before the first promotion beyond local development, the project must have:
 
 ### 6. Approval Lock
 The Supervisor must block development or promotion if required start-readiness items are missing without an explicit Product Owner decision to postpone them.
+
+---
+
+## 💬 SOP 11: Discovery & Strategy Discussion Routing
+
+Before coding, users may want to discuss whether an app idea is good, what its future could be, whether it can generate income, what growth path is possible, what infrastructure is needed, and what approximate cost may look like. These discussions must be routed to the right agents instead of jumping directly to development.
+
+### 1. Primary Discussion Owner
+*   **Product Owner Agent** owns app viability, future growth, market fit, income potential, business model, MVP scope, roadmap, pricing, customer acquisition, risks, and go/no-go recommendations.
+*   **Marketing Strategy Agent** owns go-to-market strategy, positioning, launch planning, campaign direction, channel strategy, and growth experiments after Product Owner defines business direction.
+
+### 2. Supporting Agent Routing
+*   **Prompt Agent:** Converts raw idea discussion into structured discovery questions and routes the next agent.
+*   **Architect Agent:** Handles technical feasibility, integration complexity, scaling design, data model, and technical cost drivers.
+*   **Security Auditor Agent:** Handles threat model, vulnerability risk, privacy/security feasibility, abuse cases, and security cost drivers.
+*   **Marketing Strategy Agent:** Handles target audience segmentation, positioning, competitor alternatives, acquisition channels, launch plan, campaign ideas, and growth metrics.
+*   **DevOps & Monitor Agent:** Handles hosting, environments, CI/CD, telemetry, deployment model, monitoring, and approximate recurring infrastructure cost.
+*   **UI/UX Agent:** Handles onboarding, landing page, login flow, conversion, user trust, help/support, and first-run experience.
+
+### 3. Discovery Flow
+Use this flow for pre-build strategy discussion:
+```text
+Prompt Agent
+  -> Product Owner Agent
+  -> Marketing Strategy Agent (if positioning / launch / growth / channel strategy is needed)
+  -> Architect Agent (if technical feasibility / infra shape is needed)
+  -> Security Auditor Agent (if threat model / vulnerability / privacy risk is needed)
+  -> DevOps & Monitor Agent (if hosting / deployment / monthly ops cost is needed)
+  -> UI/UX Agent (if adoption / conversion / onboarding / landing/login is needed)
+```
+
+### 4. Discussion Output Standard
+Discovery discussions should produce:
+*   Problem and target user clarity.
+*   Market and growth assumptions.
+*   Revenue or monetization options.
+*   Marketing positioning and target segment assumptions.
+*   MVP recommendation and postponed scope.
+*   Major risks and unknowns.
+*   Technical feasibility summary.
+*   Security and vulnerability risk summary.
+*   Approximate infrastructure/cost drivers.
+*   UX adoption and trust risks.
+*   Launch and growth experiment recommendations.
+*   Recommended next agent or decision: build, research more, postpone, or reject.
+
+### 5. No-Code Lock
+Discovery discussions do not authorize code changes. Development starts only after Product Owner creates or approves the FSC and the Standard Pathway begins.
+
+---
+
+## 📣 SOP 12: Marketing Strategy & Launch Readiness
+
+Marketing is a strategic support lane, not a code-writing gate. It helps shape how the product reaches users before and after development.
+
+### 1. Ownership
+*   **Product Owner Agent:** Owns product/business direction, offer, pricing, and priority.
+*   **Marketing Strategy Agent:** Owns positioning, audience segmentation, launch plan, campaign strategy, channels, and growth experiments.
+*   **UI/UX Agent:** Converts marketing inputs into landing, onboarding, trust, and conversion experiences.
+*   **Supervisor Agent:** Verifies launch readiness when marketing is part of the release plan.
+
+### 2. Required Marketing Inputs
+When launch or growth is in scope, Marketing Strategy Agent must define:
+*   Target audience and segment hypothesis.
+*   Problem, value proposition, and positioning.
+*   Competitors or current alternatives.
+*   Trust signals and proof needed.
+*   Launch plan: pre-launch, launch, post-launch.
+*   Channel plan: organic, paid, partnerships, community, content, SEO/ASO, email, or offline.
+*   Campaign ideas with metrics.
+*   Landing page and onboarding messaging inputs.
+*   Legal/policy review needs for claims, offers, pricing, and promotions.
+
+### 3. Launch Readiness Lock
+If marketing launch is in scope, Supervisor must block launch approval until Product Owner, Marketing Strategy, UI/UX, and legal/policy review needs are aligned.

@@ -10,6 +10,11 @@ Use this checklist before starting development on a new project, a major module,
 - MVP scope is defined.
 - Postponed scope and non-goals are defined.
 - Success metrics are defined.
+- Growth assumptions are discussed.
+- Revenue or monetization options are discussed.
+- Target segment and positioning assumptions are discussed.
+- Marketing channel and launch assumptions are discussed.
+- Go/no-go recommendation is documented when the idea is still uncertain.
 
 ## 2. Default Product Surfaces
 
@@ -19,6 +24,7 @@ Use this checklist before starting development on a new project, a major module,
 - Dashboard/main entry is planned or marked not-applicable.
 - Profile/settings are planned or marked not-applicable.
 - Help and support are planned or marked not-applicable.
+- Landing page messaging and trust signals are planned or marked not-applicable.
 - Terms/privacy/trust pages are planned or marked not-applicable.
 - Empty/error/loading states are planned.
 
@@ -39,7 +45,12 @@ Use this checklist before starting development on a new project, a major module,
 - Repository structure understood.
 - Coding conventions understood.
 - Secrets policy confirmed.
+- Threat model and security risk reviewed.
+- Vulnerability/security scan strategy defined.
 - Migration/rollback need assessed.
+- Technical feasibility reviewed.
+- Infrastructure and recurring cost drivers reviewed.
+- Marketing/growth readiness reviewed if launch is in scope.
 - Test strategy defined.
 - Common Gate Pipeline ready.
 - Branch pathway confirmed: `develop ---> staging ---> main`.
