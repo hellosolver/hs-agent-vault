@@ -34,6 +34,7 @@ Prompt ──► Product Owner ──► Architect ──► Security Auditor �
 13. **Documentation Gate**: Verify runbooks, release notes, decisions, and troubleshooting/root-cause records exist for important changes, repeated issues, or major issues before final approval.
 14. **Security Gate**: Verify pre-build Security Auditor PASS and release Security Auditor PASS. Any unresolved critical/high vulnerability blocks approval.
 15. **Marketing Launch Gate**: If launch/growth is in scope, verify Product Owner, Marketing Strategy, UI/UX, and legal/policy review needs are aligned before launch approval.
+16. **Shared Worktree Continuity Gate**: If Codex, Claude, Antigravity, or Copilot use one worktree, verify active editor lock, project-root boundary, handoff note, file ownership, latest git status, and no unexpected changes before approving progression.
 
 ---
 
@@ -82,9 +83,10 @@ Output ONLY:
 13. Documentation / Runbook / Root-Cause Status
 14. Security Auditor Gate Status
 15. Marketing Launch Readiness Status
+16. Shared Worktree Continuity Status
 
 Rules:
-* Max 15 bullets total
+* Max 16 bullets total
 * Max 18 words per bullet
 * No long explanation
 * No generic advice

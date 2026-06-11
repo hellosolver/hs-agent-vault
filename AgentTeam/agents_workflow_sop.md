@@ -57,6 +57,7 @@ To move a task from one agent to the next:
 4.  **Provide Live Preview Info**: When handing over from Developer to GUI Tester, supply the active local preview URL (e.g. `[Local Preview URL]`) or screenshot paths.
 5.  **Strict Conditional Handover Lock**: If GUI, CLI/API, Security Auditor, or Human Tester outputs FAIL, halt progression. Never bootstrap downstream agents on a failed build.
 6.  **Keep `.ai-control` Updated**: Make sure Developer or Supervisor updates status files like `workflow_state.json` and `next_action.md` at each stage.
+7.  **Shared Worktree Continuity Lock**: Codex, Claude, Antigravity, and Copilot may use one worktree only when one active editor lock is recorded, project-root boundary is confirmed, file ownership is clear, and every handoff includes changed files, tests run, current branch, blockers, and next action.
 
 ---
 

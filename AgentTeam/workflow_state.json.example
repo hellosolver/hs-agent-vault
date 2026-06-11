@@ -10,6 +10,23 @@
     "deployment_allowed": false,
     "manual_approval_action": null
   },
+  "shared_worktree": {
+    "enabled": true,
+    "purpose": "Allow Codex, Claude, Antigravity, and Copilot to continue from the same workspace after token/context limits without conflict.",
+    "active_project_root": "[Absolute path to current project root]",
+    "project_boundary_policy": "only_touch_files_inside_active_project_root",
+    "external_path_policy": "pause_and_request_human_approval_before_touching_other_projects",
+    "allowed_tools": ["Codex", "Claude", "Antigravity", "Copilot"],
+    "active_editor_tool": null,
+    "active_lock_status": "unlocked",
+    "locked_files": [],
+    "intended_next_files": [],
+    "last_git_status_check": null,
+    "handoff_required": true,
+    "handoff_notes_path": ".ai-control/next_action.md",
+    "unexpected_changes_policy": "pause_and_report_before_editing",
+    "parallel_editing_policy": "use_separate_branch_or_worktree"
+  },
   "environment_gates": {
     "local": { "status": "pending", "url": "[Local Preview URL]" },
     "dev": { "status": "pending", "url": "[Dev URL]" },

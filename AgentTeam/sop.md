@@ -365,3 +365,60 @@ When launch or growth is in scope, Marketing Strategy Agent must define:
 
 ### 3. Launch Readiness Lock
 If marketing launch is in scope, Supervisor must block launch approval until Product Owner, Marketing Strategy, UI/UX, and legal/policy review needs are aligned.
+
+---
+
+## SOP 13: Shared Worktree Multi-AI Continuity
+
+Codex, Claude, Antigravity, and Copilot may use the same project worktree so work can continue from the same place when one tool reaches a token limit, context limit, or availability limit. This is allowed only with durable handoff state and strict conflict control.
+
+### 1. Purpose
+The goal is continuity, not parallel uncontrolled editing. A new AI tool should be able to pick up the exact current state without creating another worktree, losing context, or overwriting changes.
+
+### 2. Allowed Tools
+*   Codex
+*   Claude
+*   Antigravity
+*   Copilot
+
+### 3. One Active Editor Lock
+Only one AI tool may actively edit files at a time in the same worktree. Other tools may read, review, discuss, or test, but must not write until the active edit lock is released or handed off.
+
+### 4. Start-of-Session Checks
+Before any AI tool edits files, it must:
+*   Check current branch and workspace status with `git status --short`.
+*   Read `.ai-control/workflow_state.json` or `workflow_state.json.example` if no project state exists.
+*   Read `.ai-control/next_action.md` or `next_action.md` when present.
+*   Confirm no unresolved lock, handoff, or blocker exists.
+*   Confirm the active project root and stay inside that project worktree.
+
+### 5. Durable Handoff Rule
+When Codex, Claude, Antigravity, or Copilot stops work, it must leave a handoff note with:
+*   Active tool name.
+*   Current branch.
+*   Files changed.
+*   Files intended for next edit.
+*   Commands/tests run.
+*   Current blockers.
+*   Next recommended agent or tool.
+
+### 6. File Ownership Rule
+The active editor must record the files it plans to edit in workflow state or handoff notes. No other AI tool may modify those files until the active editor marks the work complete, blocked, or handed off.
+
+### 7. Project Boundary Rule
+An AI tool must only read, edit, format, test, stage, commit, or push files inside the active project worktree. It must not touch another project, sibling folder, global config, shared dependency cache, or unrelated workspace unless the human explicitly approves that external path for the current task.
+
+If a required change appears outside the active project root, the AI tool must pause and report:
+*   External path needed.
+*   Reason it is needed.
+*   Risk of changing it.
+*   Safer in-project alternative if available.
+
+### 8. Unexpected Change Rule
+If any AI tool sees unexpected modified, staged, deleted, or untracked files, it must pause before editing and report the exact files. Never overwrite, revert, or clean changes made by another tool or human unless explicitly approved.
+
+### 9. Parallel Work Exception
+If real parallel implementation is required, use separate branches or separate git worktrees. Same-worktree parallel file edits are not allowed.
+
+### 10. Git Authority
+Codex, Claude, Antigravity, and Copilot must not commit, push, tag, merge, or deploy from the shared worktree unless the Supervisor has approved the gate and DevOps/Supervisor flow explicitly allows that git action.
