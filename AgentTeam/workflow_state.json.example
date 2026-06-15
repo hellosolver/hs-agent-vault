@@ -27,6 +27,16 @@
     "unexpected_changes_policy": "pause_and_report_before_editing",
     "parallel_editing_policy": "use_separate_branch_or_worktree"
   },
+  "token_economy": {
+    "enabled": true,
+    "default_response_mode": "concise",
+    "avoid_repeating_history": true,
+    "prefer_targeted_search": true,
+    "avoid_full_file_dumps": true,
+    "summarize_long_logs": true,
+    "ask_before_expensive_work": true,
+    "handoff_style": "compact_actionable"
+  },
   "environment_gates": {
     "local": { "status": "pending", "url": "[Local Preview URL]" },
     "dev": { "status": "pending", "url": "[Dev URL]" },

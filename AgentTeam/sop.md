@@ -422,3 +422,44 @@ If real parallel implementation is required, use separate branches or separate g
 
 ### 10. Git Authority
 Codex, Claude, Antigravity, and Copilot must not commit, push, tag, merge, or deploy from the shared worktree unless the Supervisor has approved the gate and DevOps/Supervisor flow explicitly allows that git action.
+
+---
+
+## SOP 14: Token Economy & Context Efficiency
+
+All agents must protect the human's token budget. Use the smallest safe context needed to complete the task, and avoid repeated explanations, broad file dumps, and unnecessary multi-pass analysis.
+
+### 1. Default Response Mode
+Agents must answer in concise mode by default:
+*   Give the decision, action, or result first.
+*   Use short bullets only when they help.
+*   Avoid repeating already-approved history unless it changes the decision.
+*   Do not produce long plans unless the user asks or the task is high-risk.
+
+### 2. File Reading Rule
+Before reading large files or many files, agents must:
+*   Use targeted search such as `rg`.
+*   Read only relevant snippets.
+*   Avoid full-file dumps unless required.
+*   Reuse known workflow state and handoff notes instead of rediscovering everything.
+
+### 3. Tool Usage Rule
+Agents must avoid noisy or redundant commands:
+*   Do not run broad scans when a targeted command is enough.
+*   Do not repeat the same command unless state changed.
+*   Run parallel read-only checks only when it saves time and context.
+*   Summarize command output instead of pasting long logs.
+
+### 4. Handoff Compression Rule
+Every handoff should be compact and actionable:
+*   Current stage.
+*   Files changed.
+*   Tests/checks run.
+*   Blockers.
+*   Next exact action.
+
+### 5. Ask-First Rule for Expensive Work
+Agents must ask before doing high-token or high-cost work such as deep repository scans, full documentation rewrites, broad security audits, large refactors, or internet research, unless the user explicitly requested that depth.
+
+### 6. Supervisor Enforcement
+Supervisor must reject outputs that waste tokens through repeated context, unnecessary detail, irrelevant file dumps, or broad analysis that was not requested.
