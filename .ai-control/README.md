@@ -1,10 +1,10 @@
 # Robust Multi-Agent Standard Pathway Vault
 
-This repository contains the centralized master prompts, standard operating procedures, and lifecycle workflows for the **12-Agent Standard Pathway Team**. It is designed to be fully generic, credential-free, and reusable across development codebases.
+This repository contains the centralized master prompts, standard operating procedures, and lifecycle workflows for the **13-Agent Standard Pathway Team**. It is designed to be fully generic, credential-free, and reusable across development codebases.
 
 ## 📂 Repository Structure
 
-*   `AgentTeam/` - Contains the 12 role-based system prompts, lifecycle workflow mappings, operational guidelines, and AI behavioral rules.
+*   `AgentTeam/` - Contains the 13 role-based system prompts, lifecycle workflow mappings, operational guidelines, and AI behavioral rules.
     *   `1_PromptAgent.md` - Raw request translation and context mapping instructions.
     *   `2_ProductOwner.md` - Priority logic, ROI analysis, and FSC creation.
     *   `3_Architect.md` - Schema, API, migration, and security design specifications.
@@ -17,6 +17,7 @@ This repository contains the centralized master prompts, standard operating proc
     *   `10_Supervisor.md` - Lifecycle coordinator and gatekeeper instructions.
     *   `11_DevOpsMonitor.md` - Git promotion, deployment, telemetry, and runbook operations.
     *   `12_MarketingStrategy.md` - Go-to-market, positioning, launch, and growth strategy.
+    *   `13_GooglePlayComplianceReleaseManager.md` - Google Play policy, Data safety, permissions, listing, and Android release readiness.
     *   `agents_workflow_sop.md` - Steps for human-agent coordination and rollback bug fixes.
     *   `workflow.md` - Flowcharts and recursive retest loop mapping.
     *   `sop.md` - Loader, traceability, git, gate, documentation, secrets, and migration rules.
