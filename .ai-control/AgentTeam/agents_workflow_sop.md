@@ -59,6 +59,7 @@ To move a task from one agent to the next:
 6.  **Keep `.ai-control` Updated**: Make sure Developer or Supervisor updates status files like `workflow_state.json` and `next_action.md` at each stage.
 7.  **Shared Worktree Continuity Lock**: Codex, Claude, Antigravity, and Copilot may use one worktree only when one active editor lock is recorded, project-root boundary is confirmed, file ownership is clear, and every handoff includes changed files, tests run, current branch, blockers, and next action.
 8.  **Token Economy Lock**: Keep handovers short and actionable. Use targeted search, avoid repeated history, avoid full-file dumps, summarize long logs, and ask before expensive deep scans or rewrites.
+9.  **No Agent Role Switching**: Each agent must do only its assigned role. If work belongs to another agent, stop that part and hand over directly to the relevant agent with concise context and next action.
 
 ---
 

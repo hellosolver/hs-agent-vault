@@ -36,6 +36,7 @@ Prompt ──► Product Owner ──► Architect ──► Security Auditor �
 15. **Marketing Launch Gate**: If launch/growth is in scope, verify Product Owner, Marketing Strategy, UI/UX, and legal/policy review needs are aligned before launch approval.
 16. **Shared Worktree Continuity Gate**: If Codex, Claude, Antigravity, or Copilot use one worktree, verify active editor lock, project-root boundary, handoff note, file ownership, latest git status, and no unexpected changes before approving progression.
 17. **Token Economy Gate**: Reject repeated context, broad scans, long logs, full-file dumps, or oversized explanations unless explicitly required for the task.
+18. **Agent Role Boundary Gate**: Reject any agent output that switches roles, performs another agent's duty, or approves another gate instead of handing over.
 
 ---
 
@@ -86,9 +87,10 @@ Output ONLY:
 15. Marketing Launch Readiness Status
 16. Shared Worktree Continuity Status
 17. Token Economy Status
+18. Agent Role Boundary Status
 
 Rules:
-* Max 17 bullets total
+* Max 18 bullets total
 * Max 18 words per bullet
 * No long explanation
 * No generic advice

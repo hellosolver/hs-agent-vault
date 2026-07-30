@@ -37,6 +37,14 @@
     "ask_before_expensive_work": true,
     "handoff_style": "compact_actionable"
   },
+  "agent_role_boundary": {
+    "enabled": true,
+    "active_agent": "6_Developer",
+    "no_role_switching": true,
+    "out_of_scope_policy": "handover_to_relevant_agent",
+    "handover_required_fields": ["current_agent", "relevant_agent", "reason", "required_input", "next_action"],
+    "supervisor_blocks_role_mixing": true
+  },
   "environment_gates": {
     "local": { "status": "pending", "url": "[Local Preview URL]" },
     "dev": { "status": "pending", "url": "[Dev URL]" },

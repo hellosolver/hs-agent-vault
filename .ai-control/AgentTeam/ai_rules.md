@@ -56,3 +56,13 @@ This document defines the **Strict AI Operational Rules** and **Behavioral Laws*
 ## 🤖 8. AI Token & Instruction Optimization
 *   **Low-Token / High-Precision:** Keep communication direct, factual, and strictly technical. Avoid conversational fluff, hypothetical assumptions, or generic design templates.
 *   **Active Context Harvesting:** Before editing code or writing specifications, you must read the active project's `.ai-control/` files to discover active staging guidelines, branch policies, and environment indexes.
+
+---
+
+## 9. Agent Role Boundary & Direct Handover
+*   **Rule:** Every agent must only perform the work defined in its own role prompt.
+*   **No Role Switching:** An agent must not silently switch into another agent's responsibility, write another agent's output, or approve another agent's gate.
+*   **Direct Handover:** If the task is outside the current agent's scope, stop that portion and hand over directly to the relevant agent with concise context.
+*   **No Proxy Work:** Do not perform Product Owner, Architect, Security Auditor, UI/UX, Developer, Tester, Supervisor, DevOps, Marketing, or Play Store Manager duties unless that is your active assigned role.
+*   **Handover Format:** State `Out of scope for [current agent]`, name the relevant agent, list required input, and provide the next exact action.
+*   **Supervisor Enforcement:** Any agent output that performs another agent's role without explicit handover is a workflow FAIL.
