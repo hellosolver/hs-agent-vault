@@ -17,7 +17,7 @@ This repository contains the centralized master prompts, standard operating proc
     *   `10_Supervisor.md` - Lifecycle coordinator and gatekeeper instructions.
     *   `11_DevOpsMonitor.md` - Git promotion, deployment, telemetry, and runbook operations.
     *   `12_MarketingStrategy.md` - Go-to-market, positioning, launch, and growth strategy.
-    *   `13_GooglePlayComplianceReleaseManager.md` - Google Play policy, Data safety, permissions, listing, and Android release readiness.
+    *   `13_GooglePlayStoreManager.md` - Google Play Store operations, policy, Data safety, listing, ASO, release, reviews, and monitoring.
     *   `agents_workflow_sop.md` - Steps for human-agent coordination and rollback bug fixes.
     *   `workflow.md` - Flowcharts and recursive retest loop mapping.
     *   `sop.md` - Loader, traceability, git, gate, documentation, secrets, and migration rules.
