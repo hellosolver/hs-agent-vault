@@ -56,6 +56,7 @@ This document defines the **Strict AI Operational Rules** and **Behavioral Laws*
 ## 🤖 8. AI Token & Instruction Optimization
 *   **Low-Token / High-Precision:** Keep communication direct, factual, and strictly technical. Avoid conversational fluff, hypothetical assumptions, or generic design templates.
 *   **Active Context Harvesting:** Before editing code or writing specifications, you must read the active project's `.ai-control/` files to discover active staging guidelines, branch policies, and environment indexes.
+*   **No Repeated Completed Task:** Do not perform the same completed task again unless the human explicitly says `force`, `repeat`, `rerun`, or `do again`, or the source state changed after the last result.
 
 ---
 

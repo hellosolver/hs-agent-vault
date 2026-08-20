@@ -31,6 +31,8 @@
     "enabled": true,
     "default_response_mode": "concise",
     "avoid_repeating_history": true,
+    "avoid_repeating_completed_tasks": true,
+    "repeat_requires_explicit_force": true,
     "prefer_targeted_search": true,
     "avoid_full_file_dumps": true,
     "summarize_long_logs": true,

@@ -447,10 +447,20 @@ Before reading large files or many files, agents must:
 Agents must avoid noisy or redundant commands:
 *   Do not run broad scans when a targeted command is enough.
 *   Do not repeat the same command unless state changed.
+*   Do not perform the same task again when it has already been completed, verified, or reported in the current workflow unless the human explicitly says `force`, `repeat`, `rerun`, or `do again`.
 *   Run parallel read-only checks only when it saves time and context.
 *   Summarize command output instead of pasting long logs.
 
-### 4. Handoff Compression Rule
+### 4. No Repeated Task Rule
+Once a task has a completed output, PASS result, committed change, pushed branch, or documented handoff, agents must not redo that same task just to reconfirm it. They should reference the existing result and continue to the next action.
+
+Allowed exceptions:
+*   The user explicitly asks to force repeat, rerun, rebuild, retest, or redo.
+*   Source files, branch, environment, dependency, or requirement changed after the last run.
+*   A previous run failed, was incomplete, or produced unclear evidence.
+*   Supervisor requires repeat validation for branch gates such as develop, staging, or production.
+
+### 5. Handoff Compression Rule
 Every handoff should be compact and actionable:
 *   Current stage.
 *   Files changed.
@@ -458,8 +468,8 @@ Every handoff should be compact and actionable:
 *   Blockers.
 *   Next exact action.
 
-### 5. Ask-First Rule for Expensive Work
+### 6. Ask-First Rule for Expensive Work
 Agents must ask before doing high-token or high-cost work such as deep repository scans, full documentation rewrites, broad security audits, large refactors, or internet research, unless the user explicitly requested that depth.
 
-### 6. Supervisor Enforcement
+### 7. Supervisor Enforcement
 Supervisor must reject outputs that waste tokens through repeated context, unnecessary detail, irrelevant file dumps, or broad analysis that was not requested.
