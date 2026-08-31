@@ -273,13 +273,22 @@ For existing projects, the Prompt Agent and Architect must inspect:
 ### 4. Engineering Readiness
 Before implementation, the team must confirm:
 *   Repository structure and coding conventions.
+*   Module-wise app structure: module names, responsibilities, routes/screens, APIs, data ownership, permissions, shared services, and cross-module boundaries.
 *   Environment variables and safe `.env.example`.
 *   Secrets policy and credential redaction.
 *   Database/schema ownership and migration plan if data changes are needed.
 *   Test strategy for unit, integration, E2E, GUI, CLI/API, and Human validation.
 *   Common Gate Pipeline readiness for local, dev, staging, and production.
 
-### 5. Documentation Readiness
+### 5. Module-Wise Build Standard
+All app development must follow a module-wise concept:
+*   Each module must have clear purpose, owner, entry routes/screens, API contracts, state/data ownership, permissions, tests, and documentation.
+*   Shared utilities, services, components, hooks, middleware, schemas, or configs must be explicitly named as shared assets.
+*   Agents must avoid scattering one feature across unrelated modules without an Architect-approved boundary.
+*   Cross-module changes must include affected module list, regression risk, and required retest scope.
+*   New modules must be added through Product Owner scope, Architect module boundary map, Security Auditor review, UI/UX flow, Developer implementation, and full validation gates.
+
+### 6. Documentation Readiness
 Before the first promotion beyond local development, the project must have:
 *   Setup/run instructions.
 *   Common Gate Pipeline instructions.
@@ -288,7 +297,7 @@ Before the first promotion beyond local development, the project must have:
 *   Release notes location.
 *   Decision log location for important product, architecture, or operational choices.
 
-### 6. Approval Lock
+### 7. Approval Lock
 The Supervisor must block development or promotion if required start-readiness items are missing without an explicit Product Owner decision to postpone them.
 
 ---

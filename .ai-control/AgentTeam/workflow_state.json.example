@@ -47,11 +47,45 @@
     "handover_required_fields": ["current_agent", "relevant_agent", "reason", "required_input", "next_action"],
     "supervisor_blocks_role_mixing": true
   },
+  "module_wise_build": {
+    "enabled": true,
+    "module_boundary_map_required": true,
+    "affected_modules": [],
+    "shared_services_touched": [],
+    "cross_module_regression_risks": [],
+    "module_retest_scope": []
+  },
   "environment_gates": {
     "local": { "status": "pending", "url": "[Local Preview URL]" },
     "dev": { "status": "pending", "url": "[Dev URL]" },
     "staging": { "status": "pending", "url": "[Staging URL]" },
-    "production": { "status": "blocked", "url": "[Production URL]" }
+    "production": { "status": "blocked", "url": "[Production URL]" },
+    "android_apk": { "status": "not_applicable", "artifact_path": null }
+  },
+  "app_version_control": {
+    "version": "1.0.0",
+    "build_number": null,
+    "android_version_code": null,
+    "git_sha": null,
+    "release_tag": null,
+    "changelog_path": null,
+    "rollback_target": null
+  },
+  "mandatory_feature_matrix": {
+    "onboarding": "pending",
+    "landing_home": "pending",
+    "login_auth": "pending",
+    "dashboard_main_entry": "pending",
+    "profile_settings": "pending",
+    "role_management": "pending",
+    "notifications": "pending",
+    "search_filter": "pending",
+    "help_support": "pending",
+    "feedback_contact": "pending",
+    "legal_trust": "pending",
+    "analytics_telemetry": "pending",
+    "admin_support_tooling": "pending",
+    "empty_error_loading_states": "pending"
   },
   "stage_history": [
     {

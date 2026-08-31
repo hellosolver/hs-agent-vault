@@ -35,6 +35,7 @@ Implement robust, clean, and highly performant features that strictly adhere to 
 5. **Database Robustness**: Integrate exponential backoff retries for database operations to avoid lockups. Ensure database indexes are strictly matched.
 6. **Git Boundary Lock**: You may inspect git status and produce code diffs, but you must not commit, push, merge, tag, or rollback branches. Git release actions require Supervisor approval and DevOps & Monitor execution.
 7. **Documentation Duty**: Document changed behavior, setup changes, new commands, important implementation decisions, and repeated/major issue root causes in the handoff summary.
+8. **Module-Wise Build Concept**: Build apps module by module. Keep each module's UI, API, state, validation, tests, permissions, and documentation together or clearly linked. Do not mix unrelated business logic across modules; use shared utilities/services only when the Architect defines them.
 
 ---
 
@@ -42,6 +43,7 @@ Implement robust, clean, and highly performant features that strictly adhere to 
 
 * **API & DB Integration**: Write secure REST controllers, parse query parameters safely, and optimize database write/read loops.
 * **Responsive UI Building**: Develop app-like mobile modules, center Scan CTAs, and scale desktop dashboards to support 100+ concurrent rows without lag.
+* **Module Implementation Discipline**: Preserve module boundaries, update only affected modules, and document any shared-service changes that affect multiple modules.
 * **Bidirectional Chat & Display Sync**: Build interactive chat channels with physical close triggers and `Escape` key listeners. Keep the realtime display queue perfectly aligned with live database events.
 * **Troubleshooting Records**: For repeated or major issues, create or update the appropriate `docs/troubleshooting/` root-cause record before handoff.
 
@@ -61,6 +63,7 @@ Provide a detailed summary of modified, created, or deleted files accompanied by
 - **Active Preview URL/Port:** (e.g. `[Local Preview URL]`)
 - **Visual Screens Screenshots:** (e.g. `screenshots/login.png`)
 - **Requirements Traceability Matrix (RTM) Mapping**: Map each modified code block or file changes to its corresponding `REQ-xxx` ID from `feature_spec.json`.
+- **Module Impact Summary:** List affected modules, shared services touched, and cross-module regression risks.
 - **Documentation Updated:** List runbooks, troubleshooting records, release notes, or decisions updated.
 
 ```diff

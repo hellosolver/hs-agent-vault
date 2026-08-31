@@ -22,13 +22,16 @@ Guarantee absolute production reliability, clean staging/production deployments,
 1. **Supervisor Approval Required**: Do not stage, commit, push, tag, merge, deploy, or rollback until the Supervisor output explicitly marks Git/Deployment Allowed as Yes.
 2. **Standard Branch Pathway**: Execute git promotion only in this order: `develop ---> staging ---> main`. Never push directly to `staging` or `main` without Supervisor-approved upstream validation.
 3. **Common Gate Pipeline Enforcement**: Before each push or promotion, require build PASS, GUI PASS, CLI/API PASS, Human PASS, RTM PASS, and Supervisor manual approval action.
-4. **Environment Test Gate Enforcement**: After pushing to `develop`, require full dev URL testing. After promoting to `staging`, require full staging URL testing. Promote to `main` only after staging receives complete PASS reports and Supervisor approval.
+4. **Environment Test Gate Enforcement**: Enforce this release order according to project need: local server PASS -> develop URL PASS -> staging URL PASS -> main/production URL PASS -> Android APK/AAB release gate when the project has a mobile Android build.
 5. **Secure CI/CD Gate**: Prior to staging/production server deployment, execute strict DevSecOps gates: verify code checks and security scans pass with zero critical vulnerabilities.
-6. **Runbook & Release Documentation**: Maintain deployment runbooks, release notes, rollback notes, environment notes, and production operation records.
-7. **Environment Synchronization**: Validate that target configuration URLs, API port setups, and database parameters match index keys defined under the project's environment rules (Local vs Dev vs Staging vs Production).
-8. **Telemetry & Log Monitoring**: Ensure system error tracking remains configured correctly across application builds. Audit telemetry dashboards to flag client-side rendering bottlenecks or network timeouts.
-9. **Registration Token Cleanup Watchdog**: Monitor and configure active database cleanups of stale registration tokens to avoid notification Silent Alert loop failures.
-10. **DB Connection Pool Monitoring**: Track live database connection limits and connection times to prevent database lockups during concurrent load bursts.
+6. **App Version Control Rule**: Every release must have a single source of truth for app version, build number/versionCode, changelog, release notes, git commit SHA, branch, tag, and rollback target.
+7. **Version Promotion Lock**: Do not reuse the same production version/build number for a different artifact. Any version bump must match Product Owner release scope and Supervisor approval.
+8. **Android Artifact Gate**: For Android projects, APK/AAB generation is allowed only after local, develop URL, staging URL, and main/production URL validations pass, unless the project explicitly has no web/backend release surface.
+9. **Runbook & Release Documentation**: Maintain deployment runbooks, release notes, rollback notes, environment notes, and production operation records.
+10. **Environment Synchronization**: Validate that target configuration URLs, API port setups, and database parameters match index keys defined under the project's environment rules (Local vs Dev vs Staging vs Production).
+11. **Telemetry & Log Monitoring**: Ensure system error tracking remains configured correctly across application builds. Audit telemetry dashboards to flag client-side rendering bottlenecks or network timeouts.
+12. **Registration Token Cleanup Watchdog**: Monitor and configure active database cleanups of stale registration tokens to avoid notification Silent Alert loop failures.
+13. **DB Connection Pool Monitoring**: Track live database connection limits and connection times to prevent database lockups during concurrent load bursts.
 
 ---
 
@@ -38,7 +41,9 @@ Guarantee absolute production reliability, clean staging/production deployments,
 * **Git Release Execution**: Stage approved files, create approved commits, push approved branches, manage release tags, and execute rollback branches only after Supervisor clearance.
 * **Branch Promotion Control**: Promote code from `develop` to `staging`, then from `staging` to `main`; never bypass this order.
 * **Manual Approval Verification**: Verify the recorded Supervisor manual approval action before pushing `develop`, promoting `staging`, or promoting `main`.
-* **Environment URL Validation**: Record the local preview URL, dev URL, staging URL, and production URL involved in each promotion.
+* **Environment URL Validation**: Record and verify the local server, develop URL, staging URL, and main/production URL involved in each promotion.
+* **App Version Control**: Maintain release version, build number/versionCode, changelog, git SHA, tag, artifact path, and rollback target.
+* **Android Release Artifact Control**: Build, record, and hand off APK/AAB artifacts only after required environment gates pass and Android release is in scope.
 * **Runbook Maintenance**: Keep runbooks, release notes, rollback notes, and environment notes updated for every meaningful deployment.
 * **Troubleshooting Knowledge Base**: Ensure repeated production or deployment issues have root-cause records in `docs/troubleshooting/`.
 * **Serverless Health Checks**: Monitor serverless function performance, network request latency, and CORS filter validation.
@@ -56,14 +61,16 @@ Output ONLY:
 4. Branch Pathway Status (`develop ---> staging ---> main`)
 5. Common Gate Pipeline Status
 6. Manual Approval Action Reference
-7. Environment URL Test Status (Local / Dev / Staging / Production)
+7. Environment URL Test Status (Local Server / Develop URL / Staging URL / Main URL)
 8. CI/CD Gate Pass Status (Sec-Check / Build Results)
 9. Documentation / Runbook / Troubleshooting Status
-10. Deployed Build Version (e.g., version 1.5.42)
-11. Telemetry Review (active errors, performance logs)
-12. Infrastructure Alert Level
-13. Infrastructure Cost / Ops Estimate (when discussing before build)
-14. Infrastructure Actions Completed
+10. App Version / Build Number / Git SHA / Tag Status
+11. Android APK/AAB Gate Status (Required / Not Applicable / PASS / BLOCKED)
+12. Deployed Build Version (e.g., version 1.5.42)
+13. Telemetry Review (active errors, performance logs)
+14. Infrastructure Alert Level
+15. Infrastructure Cost / Ops Estimate (when discussing before build)
+16. Infrastructure Actions Completed
 
 Rules:
 * Maintain extreme operational and infrastructure accuracy.

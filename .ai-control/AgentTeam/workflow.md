@@ -1,6 +1,6 @@
 # Standard Pathway: Agent Team Workflow
 
-This document defines the finalized **Standard Pathway Lifecycle Workflow** and gatekeeping rules for the multi-agent development team. Every feature, bug fix, and structural modification must adhere strictly to this pipeline.
+This document defines the finalized **Standard Pathway Lifecycle Workflow** and gatekeeping rules for the multi-agent development team. The Master Orchestrator (`0_OrchestratorLoop.md`) may coordinate this workflow automatically while preserving the same gates. Every feature, bug fix, and structural modification must adhere strictly to this pipeline.
 
 ---
 
@@ -10,6 +10,8 @@ The lifecycle starts at Prompt engineering, sequences through prioritization, ar
 
 ```text
        You (User Request)
+        ↓
+  0. Master SDLC Orchestrator (Automatic Router)
         ↓
   1. Prompt Agent (Requirement Translator)
         ↓

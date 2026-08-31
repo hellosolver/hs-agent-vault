@@ -23,9 +23,14 @@ Use this checklist before starting development on a new project, a major module,
 - Login/authentication is planned or marked not-applicable.
 - Dashboard/main entry is planned or marked not-applicable.
 - Profile/settings are planned or marked not-applicable.
+- Role management or permission model is planned or marked not-applicable.
+- Notifications or communication path is planned or marked not-applicable.
+- Search, filter, or discovery flow is planned or marked not-applicable.
 - Help and support are planned or marked not-applicable.
+- Feedback/contact path is planned or marked not-applicable.
 - Landing page messaging and trust signals are planned or marked not-applicable.
 - Terms/privacy/trust pages are planned or marked not-applicable.
+- Analytics/telemetry and admin/support tooling are planned or marked not-applicable.
 - Empty/error/loading states are planned.
 
 ## 3. Existing Project Intake
@@ -44,6 +49,9 @@ Use this checklist before starting development on a new project, a major module,
 
 - Repository structure understood.
 - Coding conventions understood.
+- Module-wise structure defined.
+- Module responsibilities, routes/screens, APIs, data ownership, permissions, and shared services identified.
+- Cross-module boundaries and regression risk areas documented.
 - Secrets policy confirmed.
 - Threat model and security risk reviewed.
 - Vulnerability/security scan strategy defined.
@@ -54,6 +62,8 @@ Use this checklist before starting development on a new project, a major module,
 - Test strategy defined.
 - Common Gate Pipeline ready.
 - Branch pathway confirmed: `develop ---> staging ---> main`.
+- App version, build number/versionCode, changelog, release notes, and rollback version strategy defined.
+- Required release path defined: local server -> develop URL -> staging URL -> main/production URL -> Android APK/AAB when applicable.
 
 ## 5. Documentation Readiness
 

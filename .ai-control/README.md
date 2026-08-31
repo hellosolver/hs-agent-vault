@@ -1,10 +1,11 @@
 # Robust Multi-Agent Standard Pathway Vault
 
-This repository contains the centralized master prompts, standard operating procedures, and lifecycle workflows for the **14-Agent Standard Pathway Team**. It is designed to be fully generic, credential-free, and reusable across development codebases.
+This repository contains the centralized master prompts, standard operating procedures, and lifecycle workflows for the **14-Agent Standard Pathway Team** plus the Master SDLC Orchestrator. It is designed to be fully generic, credential-free, and reusable across development codebases.
 
 ## 📂 Repository Structure
 
-*   `AgentTeam/` - Contains the 14 role-based system prompts, lifecycle workflow mappings, operational guidelines, and AI behavioral rules.
+*   `AgentTeam/` - Contains the Master Orchestrator, 14 role-based system prompts, lifecycle workflow mappings, operational guidelines, and AI behavioral rules.
+    *   `0_OrchestratorLoop.md` - Automatic SDLC loop coordinator, agent router, state manager, and gate controller.
     *   `1_PromptAgent.md` - Raw request translation and context mapping instructions.
     *   `2_ProductOwner.md` - Priority logic, ROI analysis, and FSC creation.
     *   `3_Architect.md` - Schema, API, migration, and security design specifications.
@@ -30,7 +31,16 @@ This repository contains the centralized master prompts, standard operating proc
 
 ## 🚀 How to Use
 
-To use these centralized agent roles in any coding workspace, bootstrap your active assistant context by referencing the local path of the desired agent:
+To run the automatic SDLC loop in any coding workspace, bootstrap the orchestrator:
+
+```text
+Aapko is chat me Master SDLC Orchestrator ka role play karna hai.
+Apne master rules read karne ke liye is path par view karein:
+[AgentTeamRoot]/.ai-control/AgentTeam/0_OrchestratorLoop.md
+Meri raw request ko automatic agent workflow se execute karein.
+```
+
+To use a specific agent directly, bootstrap your active assistant context by referencing the local path of the desired agent:
 
 ```text
 Aapko is chat me Full Stack Developer Agent ka role play karna hai. 
