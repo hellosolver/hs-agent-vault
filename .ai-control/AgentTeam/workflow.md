@@ -50,15 +50,14 @@ Build PASS
   -> Human Tester PASS
   -> RTM Traceability PASS
   -> Documentation / runbook / root-cause check PASS
-  -> Supervisor manual approval action
+  -> Approval action only for staging/main
   -> DevOps git/deploy execution
 ```
 
 ```text
 Promotion Sequence:
 Local Common Gate PASS
-  -> Supervisor approves develop push
-  -> DevOps pushes to develop
+  -> Developer or DevOps pushes to develop without manual approval
   -> Dev URL Common Gate PASS
   -> Supervisor manually approves staging promotion
   -> DevOps promotes to staging
@@ -129,7 +128,7 @@ If any validator or security agent flags critical failures, the pipeline must ha
 6.  **Chat Drawer Bugs:** Dynamic communication panels missing Close buttons or ignoring keyboard `Escape` exits.
 7.  **Obsolete Routing / Link Leakage:** Attempting to render legacy or out-of-scope pages locally rather than redirecting externally to configured domains.
 8.  **Environment Test Bypass:** Reusing local test results for dev or staging approval, or promoting without fresh URL-specific PASS reports.
-9.  **Manual Approval Bypass:** Pushing to `develop`, promoting to `staging`, or promoting to `main` without a recorded Supervisor manual approval action.
+9.  **Manual Approval Bypass:** Promoting to `staging` or `main` without explicit human manual approval.
 10. **Missing Documentation:** Repeated issues, major issues, deployment changes, or important decisions lacking runbook, troubleshooting, release-note, or decision records.
 11. **Unsafe Secrets:** Hardcoded credentials, committed real environment files, or unredacted secret values in logs, docs, screenshots, or test reports.
 12. **Unsafe Migration:** Schema/data changes without migration plan, rollback plan, and consistency verification.

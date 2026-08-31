@@ -6,6 +6,11 @@
   "branch_pathway": {
     "current_branch": "develop",
     "required_order": ["develop", "staging", "main"],
+    "develop_push_allowed_agents": ["6_Developer", "11_DevOpsMonitor"],
+    "git_push_forbidden_agents": ["0_OrchestratorLoop", "1_PromptAgent", "2_ProductOwner", "3_Architect", "4_SecurityAuditor", "5_UIUX", "7_GUITester", "8_CLITester", "9_HumanTester", "10_Supervisor", "12_MarketingStrategy", "13_GooglePlayStoreManager", "14_LegalComplianceAdvisor"],
+    "develop_manual_approval_required": false,
+    "staging_manual_approval_required": true,
+    "main_manual_approval_required": true,
     "git_allowed": false,
     "deployment_allowed": false,
     "manual_approval_action": null

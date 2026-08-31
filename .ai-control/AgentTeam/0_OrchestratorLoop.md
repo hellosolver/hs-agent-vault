@@ -239,7 +239,10 @@ local server PASS
 ```
 
 Rules:
-* Do not commit, push, tag, merge, deploy, or rollback without the required Supervisor/DevOps approval path.
+* Only Developer Agent and DevOps & Monitor Agent may push to `develop` after local Common Gate PASS without manual user approval.
+* All other agents are forbidden from running git push to any branch.
+* Staging and main promotions require explicit human manual approval.
+* Do not tag, merge, deploy, rollback, or promote staging/main without the required Supervisor/DevOps approval path.
 * Maintain app version, build number/versionCode, changelog, release notes, git SHA, tag, and rollback target.
 * Do not reuse a production version/build number for a different artifact.
 * Main/production promotion requires explicit user approval.

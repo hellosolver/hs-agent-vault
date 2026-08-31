@@ -100,9 +100,10 @@ Every new build backlog must be serialized by the Product Owner Agent into `.ai-
 To prevent unapproved releases, accidental branch changes, and unsafe production pushes:
 
 ### 1. Role Ownership
-*   **Developer Agent:** Edits code, checks git status, summarizes diffs, and reports changed files. It must not commit, push, tag, merge, or rollback.
+*   **Developer Agent:** Edits code, checks git status, summarizes diffs, and may push to `develop` after local Common Gate PASS. It must not push/promote `staging` or `main`.
 *   **Supervisor Agent:** Audits changed files, branch state, test reports, and RTM coverage. It approves or rejects git progression.
-*   **DevOps & Monitor Agent:** Executes approved git actions, including staging, committing, pushing, tagging, deployment, and rollback.
+*   **DevOps & Monitor Agent:** Executes git actions, may push to `develop` after local Common Gate PASS, and handles `staging`/`main` only after explicit human manual approval.
+*   **All Other Agents:** May inspect git status/history when needed, but must never run git push to any branch.
 
 ### 2. Approval Lock
 No git release action may occur unless the Supervisor output explicitly states **Git/Deployment Allowed: Yes**. If approval is missing, ambiguous, or rejected, DevOps must halt and request Supervisor clearance.
@@ -118,7 +119,7 @@ develop ---> staging ---> main
 *   **DevOps & Monitor Agent:** Executes approved branch creation, merge, push, tag, and deployment actions across this pathway.
 
 ### 4. Common Gate Pipeline
-Every branch push or promotion must pass the same reusable gate. This gate applies before `develop`, before `staging`, and before `main`:
+Every branch push or promotion must pass the same reusable gate. Manual approval differs by branch:
 ```text
 Common Gate Pipeline
   -> current environment build completed
@@ -129,10 +130,10 @@ Common Gate Pipeline
   -> Security Auditor release re-check PASS
   -> Human Tester PASS
   -> RTM traceability PASS
-  -> Supervisor manual approval action
+  -> Approval action only for staging/main
   -> DevOps executes approved git/deploy action
 ```
-*   **Before develop:** Local code must pass the Common Gate Pipeline before DevOps may push to `develop`.
+*   **Before develop:** Local code must pass the Common Gate Pipeline before Developer or DevOps may push to `develop`; no manual user approval is required for this develop push. No other agent may push to `develop`.
 *   **Before staging:** Dev URL must pass the Common Gate Pipeline, then Supervisor must trigger the manual staging approval action.
 *   **Before main:** Staging URL must pass the Common Gate Pipeline, then Supervisor must trigger the manual production approval action.
 *   **Same Gate Rule:** `develop`, `staging`, and `main` use the same gate checklist. No environment gets a lighter process.
@@ -142,8 +143,7 @@ Common Gate Pipeline
 The branch pathway is not a single approval. It is a repeated full-validation ecosystem gate:
 ```text
 Local Common Gate PASS
-  ---> Supervisor manual approval to push develop
-  ---> DevOps pushes to develop
+  ---> Developer or DevOps pushes to develop without manual approval
   ---> Dev URL Common Gate PASS
   ---> Supervisor manual approval to promote staging
   ---> DevOps promotes to staging
@@ -155,7 +155,7 @@ Local Common Gate PASS
 *   **Develop Gate:** After `develop` is updated, all validator agents must repeat full testing against the dev URL. Any FAIL returns to Developer.
 *   **Staging Gate:** After promotion to `staging`, all validator agents must repeat full testing against the staging URL. Any FAIL returns to Developer through the standard bug-fix loop.
 *   **Production Gate:** `main` promotion is allowed only after staging has a full PASS from GUI Tester, CLI/API Tester, Human Tester, and Supervisor.
-*   **Manual Approval Action Lock:** Staging and production promotions require explicit Supervisor manual approval action records before DevOps executes git promotion.
+*   **Manual Approval Action Lock:** Only staging and production promotions require explicit human manual approval action records before DevOps executes git promotion.
 
 ---
 

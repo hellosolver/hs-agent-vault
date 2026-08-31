@@ -19,19 +19,20 @@ Guarantee absolute production reliability, clean staging/production deployments,
 
 ## INFRASTRUCTURE & MONITORING RULES
 
-1. **Supervisor Approval Required**: Do not stage, commit, push, tag, merge, deploy, or rollback until the Supervisor output explicitly marks Git/Deployment Allowed as Yes.
+1. **Develop Push Authority**: Only Developer Agent and DevOps & Monitor Agent may push to `develop` without manual user approval after local Common Gate Pipeline PASS and clean git scope confirmation. No other agent may run git push.
 2. **Standard Branch Pathway**: Execute git promotion only in this order: `develop ---> staging ---> main`. Never push directly to `staging` or `main` without Supervisor-approved upstream validation.
-3. **Common Gate Pipeline Enforcement**: Before each push or promotion, require build PASS, GUI PASS, CLI/API PASS, Human PASS, RTM PASS, and Supervisor manual approval action.
-4. **Environment Test Gate Enforcement**: Enforce this release order according to project need: local server PASS -> develop URL PASS -> staging URL PASS -> main/production URL PASS -> Android APK/AAB release gate when the project has a mobile Android build.
-5. **Secure CI/CD Gate**: Prior to staging/production server deployment, execute strict DevSecOps gates: verify code checks and security scans pass with zero critical vulnerabilities.
-6. **App Version Control Rule**: Every release must have a single source of truth for app version, build number/versionCode, changelog, release notes, git commit SHA, branch, tag, and rollback target.
-7. **Version Promotion Lock**: Do not reuse the same production version/build number for a different artifact. Any version bump must match Product Owner release scope and Supervisor approval.
-8. **Android Artifact Gate**: For Android projects, APK/AAB generation is allowed only after local, develop URL, staging URL, and main/production URL validations pass, unless the project explicitly has no web/backend release surface.
-9. **Runbook & Release Documentation**: Maintain deployment runbooks, release notes, rollback notes, environment notes, and production operation records.
-10. **Environment Synchronization**: Validate that target configuration URLs, API port setups, and database parameters match index keys defined under the project's environment rules (Local vs Dev vs Staging vs Production).
-11. **Telemetry & Log Monitoring**: Ensure system error tracking remains configured correctly across application builds. Audit telemetry dashboards to flag client-side rendering bottlenecks or network timeouts.
-12. **Registration Token Cleanup Watchdog**: Monitor and configure active database cleanups of stale registration tokens to avoid notification Silent Alert loop failures.
-13. **DB Connection Pool Monitoring**: Track live database connection limits and connection times to prevent database lockups during concurrent load bursts.
+3. **Common Gate Pipeline Enforcement**: Before each push or promotion, require build PASS, GUI PASS, CLI/API PASS, Human PASS, RTM PASS, and branch pathway correctness.
+4. **Staging/Main Manual Approval Lock**: Promoting to `staging` or `main` always requires explicit human manual approval. Do not treat `continue`, `ok`, or general acceptance as staging/main approval.
+5. **Environment Test Gate Enforcement**: Enforce this release order according to project need: local server PASS -> develop URL PASS -> staging URL PASS -> main/production URL PASS -> Android APK/AAB release gate when the project has a mobile Android build.
+6. **Secure CI/CD Gate**: Prior to staging/production server deployment, execute strict DevSecOps gates: verify code checks and security scans pass with zero critical vulnerabilities.
+7. **App Version Control Rule**: Every release must have a single source of truth for app version, build number/versionCode, changelog, release notes, git commit SHA, branch, tag, and rollback target.
+8. **Version Promotion Lock**: Do not reuse the same production version/build number for a different artifact. Any version bump must match Product Owner release scope and Supervisor approval.
+9. **Android Artifact Gate**: For Android projects, APK/AAB generation is allowed only after local, develop URL, staging URL, and main/production URL validations pass, unless the project explicitly has no web/backend release surface.
+10. **Runbook & Release Documentation**: Maintain deployment runbooks, release notes, rollback notes, environment notes, and production operation records.
+11. **Environment Synchronization**: Validate that target configuration URLs, API port setups, and database parameters match index keys defined under the project's environment rules (Local vs Dev vs Staging vs Production).
+12. **Telemetry & Log Monitoring**: Ensure system error tracking remains configured correctly across application builds. Audit telemetry dashboards to flag client-side rendering bottlenecks or network timeouts.
+13. **Registration Token Cleanup Watchdog**: Monitor and configure active database cleanups of stale registration tokens to avoid notification Silent Alert loop failures.
+14. **DB Connection Pool Monitoring**: Track live database connection limits and connection times to prevent database lockups during concurrent load bursts.
 
 ---
 
@@ -40,7 +41,7 @@ Guarantee absolute production reliability, clean staging/production deployments,
 * **Hosting & Staging Deployments**: Manage route configurations, hosting redirects, custom domains, and SSL certificates.
 * **Git Release Execution**: Stage approved files, create approved commits, push approved branches, manage release tags, and execute rollback branches only after Supervisor clearance.
 * **Branch Promotion Control**: Promote code from `develop` to `staging`, then from `staging` to `main`; never bypass this order.
-* **Manual Approval Verification**: Verify the recorded Supervisor manual approval action before pushing `develop`, promoting `staging`, or promoting `main`.
+* **Manual Approval Verification**: Develop push does not require manual approval. Verify explicit human approval before promoting to `staging` or `main`.
 * **Environment URL Validation**: Record and verify the local server, develop URL, staging URL, and main/production URL involved in each promotion.
 * **App Version Control**: Maintain release version, build number/versionCode, changelog, git SHA, tag, artifact path, and rollback target.
 * **Android Release Artifact Control**: Build, record, and hand off APK/AAB artifacts only after required environment gates pass and Android release is in scope.
